@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RazerStoreApps">
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AuthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pertemuan_4.FourthActivity"
+            android:exported="false" />
+        <activity
             android:name=".pertemuan_3.ThirdResultActivity"
             android:exported="false" />
         <activity
@@ -19,6 +28,9 @@
             android:exported="false" />
         <activity
             android:name=".pertemuan_3.ThirdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,9 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"></activity>
     </application>
 
 </manifest>
