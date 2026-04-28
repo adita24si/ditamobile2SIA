@@ -10,35 +10,33 @@
     <View
         android:id="@+id/headerBg"
         android:layout_width="0dp"
-        android:layout_height="280dp"
+        android:layout_height="250dp"
         android:background="#7C3AED"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Logo -->
-
-    <!-- Card Login -->
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="38dp"
         android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/logoadita"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logoadita" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Main Card -->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/loginCard"
+        android:id="@+id/mainCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginEnd="28dp"
-        app:cardCornerRadius="32dp"
-        app:cardElevation="14dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="12dp"
         app:strokeColor="#E9D5FF"
         app:strokeWidth="2dp"
         app:cardBackgroundColor="#FFFFFF"
@@ -57,76 +55,53 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sistem Informasi Produk Hukum"
-                android:textSize="24sp"
                 android:textStyle="bold"
+                android:textSize="24sp"
                 android:textColor="#2E1065"/>
 
-            <!-- Sub Judul -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dokumen Publik Bina Desa"
                 android:textSize="15sp"
                 android:textColor="#6B7280"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginBottom="28dp"/>
 
-            <!-- Username -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+            <!-- Menu -->
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Username"
-                app:boxBackgroundMode="filled"
-                app:boxBackgroundColor="#F5F3FF"
-                app:boxStrokeColor="#7C3AED"
-                app:boxCornerRadiusTopStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusBottomEnd="20dp">
+                android:text="Menu Utama"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#2E1065"
+                android:layout_marginBottom="24dp"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtUsername"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Password -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:hint="Password"
-                app:endIconMode="password_toggle"
-                app:boxBackgroundMode="filled"
-                app:boxBackgroundColor="#F5F3FF"
-                app:boxStrokeColor="#7C3AED"
-                app:boxCornerRadiusTopStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusBottomEnd="20dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Tombol -->
+            <!-- Tombol Portal -->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnWebsite"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:layout_marginTop="30dp"
-                android:text="Masuk Sistem"
+                android:text="Akses Portal Dokumen Publik"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="#FFFFFF"
                 android:backgroundTint="#7C3AED"
                 app:cornerRadius="20dp"
-                app:elevation="8dp"/>
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Tombol Logout -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:text="Logout Sistem"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#5B21B6"
+                app:cornerRadius="20dp"/>
 
         </LinearLayout>
 
@@ -137,9 +112,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Layanan Digital Regulasi dan Dokumen Publik Desa"
-        android:textSize="12sp"
         android:textColor="#7E57C2"
-        android:layout_marginBottom="25dp"
+        android:textSize="12sp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

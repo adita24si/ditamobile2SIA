@@ -11,35 +11,59 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SplashScreenActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash_screen)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.setPadding(
+                bars.left,
+                bars.top,
+                bars.right,
+                bars.bottom
+            )
             insets
         }
 
-        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
-        val isLogin = sharedPref.getBoolean("isLogin", false)
+        val sharedPref = getSharedPreferences(
+            "user_pref",
+            MODE_PRIVATE
+        )
 
-        if (isLogin) {
-            // Jika sudah login, tampilkan splash 2 detik lalu ke MainActivity
-            lifecycleScope.launch {
-                delay(2000)
-                val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+        val isLogin = sharedPref.getBoolean(
+            "isLogin",
+            false
+        )
+
+        // Splash delay + redirect
+        lifecycleScope.launch {
+
+            delay(2000)
+
+            if (isLogin) {
+
+                startActivity(
+                    Intent(
+                        this@SplashScreenActivity,
+                        BinaDesa::class.java
+                    )
+                )
+
+            } else {
+
+                startActivity(
+                    Intent(
+                        this@SplashScreenActivity,
+                        AuthActivity::class.java
+                    )
+                )
             }
-        } else {
-            // Jika belum login, tampilkan splash 2 detik lalu ke AuthActivity
-            lifecycleScope.launch {
-                delay(2000)
-                val intent = Intent(this@SplashScreenActivity, AuthActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
+
+            finish()
         }
     }
 }
