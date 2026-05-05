@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.appcompat.app.AlertDialog
 import com.example.razerstoreapps.databinding.ActivityMainBinding
-import com.example.razerstoreapps.pertemuan_4.FourthActivity
+import com.example.razerstoreapps.Home.pertemuan_4.FourthActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

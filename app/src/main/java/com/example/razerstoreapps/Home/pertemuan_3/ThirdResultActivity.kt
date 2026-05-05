@@ -1,4 +1,4 @@
-package com.example.razerstoreapps.pertemuan_3
+package com.example.razerstoreapps.Home.pertemuan_3
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

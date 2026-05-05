@@ -1,4 +1,4 @@
-package com.example.razerstoreapps.pertemuan_4
+package com.example.razerstoreapps.Home.pertemuan_4
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.razerstoreapps.MainActivity
 import com.example.razerstoreapps.R
 import com.example.razerstoreapps.databinding.ActivityFourthBinding
-import com.example.razerstoreapps.databinding.ActivityThirdBinding
-import com.example.razerstoreapps.pertemuan_3.ThirdResultActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 

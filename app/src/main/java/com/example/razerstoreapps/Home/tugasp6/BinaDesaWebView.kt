@@ -23,7 +23,7 @@ class BinaDesaWebView : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences(
             PREF_NAME,
-            Context.MODE_PRIVATE
+            MODE_PRIVATE
         )
 
         // URL default
@@ -54,7 +54,7 @@ class BinaDesaWebView : AppCompatActivity() {
 
         getSharedPreferences(
             PREF_NAME,
-            Context.MODE_PRIVATE
+            MODE_PRIVATE
         ).edit()
             .putString(KEY_URL, binding.webView.url)
             .apply()

@@ -16,10 +16,13 @@ class AuthActivity : AppCompatActivity() {
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharedPref = getSharedPreferences(
-            "user_pref",
-            MODE_PRIVATE
-        )
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+
+        // 🔒 AUTO LOGIN (hindari double open)
+        if (sharedPref.getBoolean("isLogin", false)) {
+            navigateToBase(sharedPref.getString("username", "Pengguna"))
+            return
+        }
 
         binding.btnLogin.setOnClickListener {
 
@@ -36,36 +39,34 @@ class AuthActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Login sederhana: username = password
+            // login sederhana
             if (username == password) {
 
-                val editor = sharedPref.edit()
-                editor.putBoolean("isLogin", true)
-                editor.putString("username", username)
-                editor.apply()
+                sharedPref.edit().apply {
+                    putBoolean("isLogin", true)
+                    putString("username", username)
+                    apply()
+                }
 
-                Toast.makeText(
-                    this,
-                    "Login Berhasil",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(
-                    this,
-                    BinaDesa::class.java
-                )
-
-                startActivity(intent)
-                finish()
+                navigateToBase(username)
 
             } else {
-
-                Toast.makeText(
-                    this,
-                    "Username atau Password salah",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Username atau Password salah", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun navigateToBase(username: String?) {
+        val intent = Intent(this, BaseActivity::class.java).apply {
+            putExtra("extra_username", username ?: "Pengguna")
+
+            // 🔥 clear back stack biar tidak bisa balik ke login
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        startActivity(intent)
+        finish()
     }
 }
