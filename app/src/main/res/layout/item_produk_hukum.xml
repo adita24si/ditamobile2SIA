@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/surface_card"
+    app:strokeColor="@color/divider"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="start">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="@color/primary_maroon_light">
+
+            <ImageView
+                android:id="@+id/imgDocIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_law"
+                app:tint="@color/primary_maroon"
+                android:padding="8dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvDocName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Peraturan Desa"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginTop="12dp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tvDocNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No. 3 Tahun 2025"
+            android:textColor="@color/primary_maroon"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvDocDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tentang Pengelolaan Dana Desa dan Anggaran Pembangunan."
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            android:maxLines="3"
+            android:ellipsize="end" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lihat Detail →"
+            android:textColor="@color/primary_maroon"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_gravity="end" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
