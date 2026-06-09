@@ -152,7 +152,7 @@ class ProfileFragment : Fragment() {
                 startActivity(intent)
                 requireActivity().finish()
             }
-            .setNegativeButton("Tidak") { dialog, _ ->
+            .setNegativeButton("Tidakk") { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
