@@ -11,6 +11,7 @@ import com.example.razerstoreapps.databinding.ActivityBaseBinding
 import com.example.razerstoreapps.About.AboutFragment
 import com.example.razerstoreapps.Home.tugasp6.HomeFragment
 import com.example.razerstoreapps.Profile.ProfileFragment
+import com.example.razerstoreapps.ui.produkhukum.ProdukHukumFragment
 
 class BaseActivity : AppCompatActivity() {
 
@@ -55,12 +56,16 @@ class BaseActivity : AppCompatActivity() {
                     replaceFragment(HomeFragment.newInstance(username))
                     true
                 }
-                R.id.about -> {
-                    replaceFragment(AboutFragment())
+                R.id.produk_hukum -> {
+                    replaceFragment(ProdukHukumFragment())
                     true
                 }
                 R.id.profile -> {
                     replaceFragment(ProfileFragment())
+                    true
+                }
+                R.id.about -> {
+                    replaceFragment(AboutFragment())
                     true
                 }
                 else -> false

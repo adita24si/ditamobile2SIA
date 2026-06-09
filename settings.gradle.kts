@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Razer Store Apps"
+rootProject.name = "Produk Hukum Bina Desa"
 include(":app")

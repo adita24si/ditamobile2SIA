@@ -4,23 +4,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F3FF">
+    android:background="@color/bg_light">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="0dp"
-        android:background="#7C3AED">
+        android:background="@color/primary_maroon">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarAbout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Tentang Aplikasi"
+            app:title="Tentang Aplikasi &amp; Desa"
             app:titleCentered="true"
-            app:titleTextColor="@android:color/white"
-            app:navigationIcon="@android:drawable/ic_menu_revert"
-            app:navigationIconTint="@android:color/white"/>
+            app:titleTextColor="@android:color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -37,161 +35,201 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
+            <!-- App Logo -->
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginTop="16dp"
-                android:src="@android:drawable/ic_menu_myplaces"
-                app:tint="@color/black"
-                android:backgroundTint="#7C3AED"
-                android:padding="16dp"
-                android:elevation="4dp"/>
+                android:src="@drawable/logoadita"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bina Desa"
+                android:text="Produk Hukum Bina Desa"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:textColor="#1E293B"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Layanan Mandiri Masyarakat"
+                android:text="Digitalisasi JDIH Tingkat Desa"
                 android:textSize="14sp"
-                android:textColor="#7C3AED"
+                android:textColor="@color/primary_maroon"
                 android:textStyle="bold"
                 android:layout_marginTop="4dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Versi 1.0.0"
+                android:text="Versi 1.1.0"
                 android:textSize="12sp"
-                android:textColor="#94A3B8"
+                android:textColor="@color/text_muted"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="24dp"/>
 
+            <!-- Section 1: Profil Desa -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
+                app:strokeColor="@color/divider"
                 app:strokeWidth="1dp"
-                app:strokeColor="#E2E8F0"
                 android:layout_marginBottom="16dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="20dp">
-
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Aplikasi ini dirancang untuk membantu masyarakat desa dalam mengakses layanan publik dan informasi produk hukum desa secara cepat, transparan, dan efisien langsung dari genggaman."
-                        android:textSize="14sp"
-                        android:lineSpacingExtra="4sp"
-                        android:textColor="#475569"
-                        android:textAlignment="center"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeWidth="1dp"
-                app:strokeColor="#E2E8F0"
-                android:layout_marginBottom="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Fitur Utama"
-                        android:textSize="16sp"
+                        android:text="Profil Desa"
+                        android:textColor="@color/primary_maroon"
                         android:textStyle="bold"
-                        android:textColor="#1E293B"
-                        android:layout_marginBottom="16dp"/>
+                        android:textSize="15sp"
+                        android:layout_marginBottom="12dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Desa Bina Desa merupakan desa percontohan digital yang terletak di wilayah administrasi strategis. Dikenal dengan keramahan warganya, desa ini berfokus pada kemandirian pangan, pengembangan ekonomi kreatif berbasis UMKM, dan optimalisasi pelayanan masyarakat secara transparan."
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="4sp"
+                        android:textColor="@color/secondary_grey"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="12dp" android:gravity="center_vertical">
-                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#7C3AED"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Akses produk hukum desa" android:textColor="#334155" android:layout_marginStart="12dp"/>
+            <!-- Section 2: Visi & Misi -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp"
+                android:layout_marginBottom="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Visi &amp; Misi Desa"
+                        android:textColor="@color/primary_maroon"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="12dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Visi:"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="&quot;Terwujudnya Desa Bina Desa yang Maju, Mandiri, Sejahtera, Berkarakter, dan Transparan melalui Inovasi Digital.&quot;"
+                        android:textSize="13sp"
+                        android:textColor="@color/secondary_grey"
+                        android:fontStyle="italic"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="12dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Misi:"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Meningkatkan tata kelola pemerintahan desa yang bersih dan efisien.\n2. Mengoptimalkan pelayanan publik melalui platform berbasis digital.\n3. Mendorong pembangunan infrastruktur merata berwawasan lingkungan.\n4. Menguatkan perekonomian warga lewat BUMDes dan UMKM lokal."
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="4sp"
+                        android:textColor="@color/secondary_grey"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Section 3: Informasi Pemerintah Desa -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/divider"
+                app:strokeWidth="1dp"
+                android:layout_marginBottom="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pemerintah Desa"
+                        android:textColor="@color/primary_maroon"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:text="Kepala Desa" android:textColor="@color/text_secondary" android:textSize="13sp"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bapak Sudirman, S.IP." android:textColor="@color/text_primary" android:textStyle="bold" android:textSize="13sp"/>
                     </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="12dp" android:gravity="center_vertical">
-                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_info_details" app:tint="#7C3AED"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Informasi desa terkini" android:textColor="#334155" android:layout_marginStart="12dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:text="Sekretaris Desa" android:textColor="@color/text_secondary" android:textSize="13sp"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ibu Sri Wahyuni, A.Md." android:textColor="@color/text_primary" android:textStyle="bold" android:textSize="13sp"/>
                     </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="12dp" android:gravity="center_vertical">
-                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_mapmode" app:tint="#7C3AED"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Integrasi website JDIH desa" android:textColor="#334155" android:layout_marginStart="12dp"/>
-                    </LinearLayout>
-
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
-                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_manage" app:tint="#7C3AED"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Layanan mandiri masyarakat" android:textColor="#334155" android:layout_marginStart="12dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:text="Kaur Pemerintahan" android:textColor="@color/text_secondary" android:textSize="13sp"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bapak Ahmad Rifai, S.H." android:textColor="@color/text_primary" android:textStyle="bold" android:textSize="13sp"/>
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Section 4: Kontak Desa -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
+                app:strokeColor="@color/divider"
                 app:strokeWidth="1dp"
-                app:strokeColor="#E2E8F0"
-                app:cardBackgroundColor="#FAF5FF"
                 android:layout_marginBottom="32dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="20dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:tint="#7C3AED"
-                        android:background="#EDE9FE"
-                        android:padding="8dp"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="16dp">
+                        android:text="Hubungi Kami"
+                        android:textColor="@color/primary_maroon"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="12dp" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Tujuan Kami"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="#7C3AED"
-                            android:layout_marginBottom="4dp"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Meningkatkan kualitas pelayanan publik desa melalui digitalisasi layanan."
-                            android:textSize="13sp"
-                            android:lineSpacingExtra="2sp"
-                            android:textColor="#475569"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_dialog_map" app:tint="@color/primary_maroon"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Jl. Raya Utama Desa No. 10, Bina Desa" android:textColor="@color/text_primary" android:textSize="13sp" android:layout_marginStart="12dp"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_menu_call" app:tint="@color/primary_maroon"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="(0761) 555-8888" android:textColor="@color/text_primary" android:textSize="13sp" android:layout_marginStart="12dp"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/ic_dialog_email" app:tint="@color/primary_maroon"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="info@binadesa.go.id" android:textColor="@color/text_primary" android:textSize="13sp" android:layout_marginStart="12dp"/>
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -199,9 +237,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="© 2026 Pemerintah Desa"
-                android:textSize="12sp"
-                android:textColor="#94A3B8"
+                android:text="© 2026 Pemerintah Desa Bina Desa"
+                android:textSize="11sp"
+                android:textColor="@color/text_muted"
                 android:layout_marginBottom="16dp"/>
 
         </LinearLayout>

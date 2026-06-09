@@ -4,14 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F2FF">
+    android:background="@color/bg_light">
 
     <!-- Header -->
     <View
         android:id="@+id/headerBg"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        android:background="#7C3AED"
+        android:background="@color/primary_maroon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -37,9 +37,9 @@
         android:layout_marginEnd="24dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="12dp"
-        app:strokeColor="#E9D5FF"
+        app:strokeColor="@color/primary_maroon_light"
         app:strokeWidth="2dp"
-        app:cardBackgroundColor="#FFFFFF"
+        app:cardBackgroundColor="@color/surface_card"
         app:layout_constraintTop_toBottomOf="@id/headerBg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -57,14 +57,14 @@
                 android:text="Sistem Informasi Produk Hukum"
                 android:textStyle="bold"
                 android:textSize="24sp"
-                android:textColor="#2E1065"/>
+                android:textColor="@color/primary_maroon_dark"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dokumen Publik Bina Desa"
                 android:textSize="15sp"
-                android:textColor="#6B7280"
+                android:textColor="@color/text_secondary"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="28dp"/>
 
@@ -75,7 +75,7 @@
                 android:text="Menu Utama"
                 android:textStyle="bold"
                 android:textSize="22sp"
-                android:textColor="#2E1065"
+                android:textColor="@color/primary_maroon_dark"
                 android:layout_marginBottom="24dp"/>
 
             <!-- Tombol Portal -->
@@ -87,7 +87,7 @@
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="#FFFFFF"
-                android:backgroundTint="#7C3AED"
+                android:backgroundTint="@color/primary_maroon"
                 app:cornerRadius="20dp"
                 android:layout_marginBottom="16dp"/>
 
@@ -100,7 +100,7 @@
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="#FFFFFF"
-                android:backgroundTint="#5B21B6"
+                android:backgroundTint="@color/primary_maroon_dark"
                 app:cornerRadius="20dp"/>
 
         </LinearLayout>
@@ -112,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Layanan Digital Regulasi dan Dokumen Publik Desa"
-        android:textColor="#7E57C2"
+        android:textColor="@color/text_muted"
         android:textSize="12sp"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"

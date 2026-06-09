@@ -7,18 +7,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.razerstoreapps.databinding.ActivitySplashScreenBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SplashScreenActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivitySplashScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
-        setContentView(R.layout.activity_splash_screen)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { view, insets ->
+        binding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { view, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             view.setPadding(
                 bars.left,
@@ -34,6 +39,11 @@ class SplashScreenActivity : AppCompatActivity() {
             MODE_PRIVATE
         )
 
+        val isOnboardingCompleted = sharedPref.getBoolean(
+            "is_onboarding_completed",
+            false
+        )
+
         val isLogin = sharedPref.getBoolean(
             "isLogin",
             false
@@ -44,17 +54,21 @@ class SplashScreenActivity : AppCompatActivity() {
 
             delay(2000)
 
-            if (isLogin) {
-
+            if (!isOnboardingCompleted) {
                 startActivity(
                     Intent(
                         this@SplashScreenActivity,
-                        BinaDesa::class.java
+                        com.example.razerstoreapps.ui.onboarding.OnboardingActivity::class.java
                     )
                 )
-
+            } else if (isLogin) {
+                startActivity(
+                    Intent(
+                        this@SplashScreenActivity,
+                        BaseActivity::class.java
+                    )
+                )
             } else {
-
                 startActivity(
                     Intent(
                         this@SplashScreenActivity,

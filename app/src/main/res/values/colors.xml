@@ -2,7 +2,26 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="biru_cantik">#002DB3</color>
-    <color name="razer_green">#44D62C</color>
-    <color name="dark_grey">#1A1A1A</color>
+    
+    <!-- Gov Maroon Theme -->
+    <color name="primary_maroon">#8A1515</color>
+    <color name="primary_maroon_dark">#660F0F</color>
+    <color name="primary_maroon_light">#F9E6E6</color>
+    <color name="secondary_grey">#4A4A4A</color>
+    
+    <color name="bg_light">#F8FAFC</color>
+    <color name="surface_card">#FFFFFF</color>
+    
+    <!-- Text colors -->
+    <color name="text_primary">#1E293B</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="divider">#E2E8F0</color>
+    
+    <color name="accent_gold">#D4AF37</color>
+    <color name="accent_green">#10B981</color>
+    <color name="accent_red">#EF4444</color>
+    
+    <color name="light_grey">#E2E8F0</color>
+    <color name="biru_cantik">#1E3A8A</color>
 </resources>

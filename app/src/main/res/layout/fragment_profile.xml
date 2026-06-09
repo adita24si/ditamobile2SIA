@@ -4,50 +4,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC">
+    android:background="@color/bg_light">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="200dp"
         app:elevation="0dp"
-        android:background="#7C3AED"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="Profil Mahasiswa"
-            app:titleCentered="true"
-            app:titleTextColor="@android:color/white"
-            app:navigationIcon="@android:drawable/ic_menu_revert"
-            app:navigationIconTint="@android:color/white"
-            android:background="@android:color/transparent"/>
+        android:background="@color/primary_maroon">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginTop="16dp">
+            android:paddingTop="24dp">
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@android:drawable/ic_menu_sort_by_size"
-                app:tint="#8B5CF6"
-                android:alpha="0.5"
-                android:layout_marginBottom="8dp"/>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="50dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@android:color/white">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Portal Akademik &amp; Desa"
-                android:textColor="#C4B5FD"
-                android:textSize="14sp"
-                android:letterSpacing="0.1"
-                android:textAllCaps="true"
-                android:textStyle="bold"/>
+                <ImageView
+                    android:id="@+id/imgProfileAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    android:scaleType="centerCrop"
+                    android:background="@color/primary_maroon_light"
+                    android:padding="8dp" />
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -56,188 +45,79 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:clipToPadding="false"
-        android:clipChildren="false">
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:paddingHorizontal="20dp"
-            android:paddingBottom="40dp">
+            android:layout_marginTop="16dp">
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="-70dp"
-                app:cardCornerRadius="70dp"
-                app:cardElevation="10dp"
-                app:strokeWidth="5dp"
-                app:strokeColor="@android:color/white"
-                android:layout_marginBottom="16dp">
-
-                <ImageView
-                    android:id="@+id/imgProfile"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@android:drawable/ic_menu_camera"
-                    android:scaleType="centerCrop"
-                    android:background="#E2E8F0"
-                    android:padding="30dp"
-                    app:tint="#94A3B8"/>
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Adita Sastra Sindia Putra"
-                android:textSize="24sp"
-                android:textColor="#1E293B"
-                android:textStyle="bold"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mahasiswa - KELAS 2 SIA"
-                android:textColor="#7C3AED"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:layout_marginTop="6dp"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:backgroundTint="#D8B4FE"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="6dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="24dp"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:src="@android:drawable/ic_menu_myplaces"
-                    app:tint="#5B21B6"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sistem Informasi Akuntansi"
-                    android:textColor="#5B21B6"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="6dp"/>
-            </LinearLayout>
-
+            <!-- Profile Name & Role Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="#F3E8FF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:strokeColor="@color/divider"
                 app:strokeWidth="1dp"
-                app:strokeColor="#D8B4FE"
-                android:layout_marginBottom="24dp">
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:gravity="center"
+                    android:padding="20dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tentang Saya"
-                        android:textColor="#6D28D9"
-                        android:textStyle="bold"
-                        android:textSize="14sp"
-                        android:layout_marginBottom="6dp"/>
-
-                    <TextView
+                        android:id="@+id/tvProfileName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mahasiswa jurusan Sistem Informasi Akuntansi (SIA) yang antusias dalam pengembangan aplikasi Android dan digitalisasi layanan masyarakat desa."
-                        android:textColor="#475569"
-                        android:lineSpacingExtra="4sp"
-                        android:textSize="13sp"/>
+                        android:text="Nama Pengguna"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/tvProfileRole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jabatan: Perangkat Desa"
+                        android:textColor="@color/primary_maroon"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp"
+                        android:textAlignment="center" />
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp"
-                app:strokeWidth="1dp"
-                app:strokeColor="#E2E8F0"
-                android:layout_marginBottom="24dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingVertical="20dp"
-                    android:baselineAligned="false">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="28" android:textSize="20sp" android:textStyle="bold" android:textColor="#1E293B"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Project" android:textSize="12sp" android:textColor="#64748B"/>
-                    </LinearLayout>
-
-                    <View android:layout_width="1dp" android:layout_height="match_parent" android:background="#E2E8F0"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3.85" android:textSize="20sp" android:textStyle="bold" android:textColor="#1E293B"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="IPK" android:textSize="12sp" android:textColor="#64748B"/>
-                    </LinearLayout>
-
-                    <View android:layout_width="1dp" android:layout_height="match_parent" android:background="#E2E8F0"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aktif" android:textSize="20sp" android:textStyle="bold" android:textColor="#10B981"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Status" android:textSize="12sp" android:textColor="#64748B"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
+            <!-- Details Section Label -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Informasi Kontak &amp; Sosial"
-                android:textColor="#94A3B8"
-                android:textSize="13sp"
+                android:text="Informasi Kontak &amp; Kantor"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 android:textAllCaps="true"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="8dp"/>
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp" />
 
+            <!-- Details Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface_card"
+                app:strokeColor="@color/divider"
                 app:strokeWidth="1dp"
-                app:strokeColor="#E2E8F0"
                 android:layout_marginBottom="24dp">
 
                 <LinearLayout
@@ -246,87 +126,90 @@
                     android:orientation="vertical"
                     android:padding="12dp">
 
+                    <!-- Phone Number -->
                     <TextView
-                        android:id="@+id/tvEmail"
+                        android:id="@+id/tvProfilePhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="adita.sastra@students.univ.ac.id"
-                        android:textColor="#334155"
-                        android:textSize="15sp"
-                        android:padding="16dp"
+                        android:text="0812-3456-7890"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:padding="14dp"
+                        android:drawableStart="@android:drawable/ic_menu_call"
+                        android:drawablePadding="16dp"
+                        android:drawableTint="@color/primary_maroon"
+                        android:gravity="center_vertical" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" android:layout_marginHorizontal="16dp" />
+
+                    <!-- Email Address -->
+                    <TextView
+                        android:id="@+id/tvProfileEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="pengguna@binadesa.go.id"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:padding="14dp"
                         android:drawableStart="@android:drawable/ic_dialog_email"
                         android:drawablePadding="16dp"
-                        android:drawableTint="#7C3AED"
-                        android:background="?attr/selectableItemBackground"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="4dp"/>
+                        android:drawableTint="@color/primary_maroon"
+                        android:gravity="center_vertical" />
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" android:layout_marginHorizontal="16dp"/>
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" android:layout_marginHorizontal="16dp" />
 
+                    <!-- Office Address -->
                     <TextView
-                        android:id="@+id/tvLinkedIn"
+                        android:id="@+id/tvProfileOffice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="linkedin.com/in/adita-sastra"
-                        android:textColor="#334155"
-                        android:textSize="15sp"
-                        android:padding="16dp"
-                        android:drawableStart="@android:drawable/ic_menu_share"
+                        android:text="Jl. Raya Bina Desa No. 10, Kantor Desa Bina Desa"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:padding="14dp"
+                        android:drawableStart="@android:drawable/ic_dialog_map"
                         android:drawablePadding="16dp"
-                        android:drawableTint="#7C3AED"
-                        android:background="?attr/selectableItemBackground"
-                        android:gravity="center_vertical"
-                        android:layout_marginVertical="4dp"/>
-
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" android:layout_marginHorizontal="16dp"/>
-
-                    <TextView
-                        android:id="@+id/tvGithub"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="github.com/aditasastra-dev"
-                        android:textColor="#334155"
-                        android:textSize="15sp"
-                        android:padding="16dp"
-                        android:drawableStart="@android:drawable/ic_menu_manage"
-                        android:drawablePadding="16dp"
-                        android:drawableTint="#7C3AED"
-                        android:background="?attr/selectableItemBackground"
-                        android:gravity="center_vertical"
-                        android:layout_marginVertical="4dp"/>
-
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F5F9" android:layout_marginHorizontal="16dp"/>
-
-                    <TextView
-                        android:id="@+id/tvInstagram"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="aditasastra.p"
-                        android:textColor="#334155"
-                        android:textSize="15sp"
-                        android:padding="16dp"
-                        android:drawableStart="@android:drawable/ic_menu_camera"
-                        android:drawablePadding="16dp"
-                        android:drawableTint="#7C3AED"
-                        android:background="?attr/selectableItemBackground"
-                        android:gravity="center_vertical"/>
+                        android:drawableTint="@color/primary_maroon"
+                        android:gravity="center_vertical" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Buttons -->
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditProfile"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Perbarui Profil"
+                android:layout_height="56dp"
+                android:text="Ubah Profil Pengguna"
                 android:textAllCaps="false"
-                android:textSize="16sp"
                 android:textStyle="bold"
+                android:textSize="16sp"
                 android:textColor="@android:color/white"
-                app:backgroundTint="#7C3AED"
+                app:backgroundTint="@color/primary_maroon"
                 app:cornerRadius="16dp"
                 app:icon="@android:drawable/ic_menu_edit"
                 app:iconGravity="textStart"
-                app:elevation="4dp"/>
+                app:elevation="2dp"
+                android:layout_marginBottom="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnProfileLogout"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Keluar dari Akun"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/accent_red"
+                app:backgroundTint="@color/bg_light"
+                app:strokeColor="@color/accent_red"
+                app:strokeWidth="1dp"
+                app:cornerRadius="16dp"
+                app:icon="@android:drawable/ic_lock_power_off"
+                app:iconGravity="textStart"
+                app:iconTint="@color/accent_red"
+                app:elevation="0dp"
+                android:layout_marginBottom="16dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

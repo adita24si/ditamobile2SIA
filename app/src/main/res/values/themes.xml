@@ -2,7 +2,13 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.RazerStoreApps" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/primary_maroon</item>
+        <item name="colorPrimaryDark">@color/primary_maroon_dark</item>
+        <item name="colorSecondary">@color/secondary_grey</item>
+        <item name="android:windowBackground">@color/bg_light</item>
+        
+        <!-- Navigation bar tinting -->
+        <item name="android:navigationBarColor">@color/white</item>
     </style>
 
     <style name="Theme.RazerStoreApps" parent="Base.Theme.RazerStoreApps" />
