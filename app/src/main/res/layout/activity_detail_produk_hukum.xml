@@ -260,7 +260,26 @@
                 app:icon="@android:drawable/stat_sys_download"
                 app:iconGravity="textStart"
                 app:elevation="4dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Reminder Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSetReminder"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Ingatkan Saya Membaca ⏰"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/biru_cantik"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_alarm"
+                app:iconTint="@android:color/white"
+                app:iconGravity="textStart"
+                app:elevation="4dp"
                 android:layout_marginBottom="24dp" />
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -12,6 +12,11 @@
         android:title="Produk Hukum" />
 
     <item
+        android:id="@+id/kelola"
+        android:icon="@drawable/ic_manage"
+        android:title="Kelola DB" />
+
+    <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_profile"
         android:title="Profile" />
@@ -21,4 +26,4 @@
         android:icon="@drawable/ic_about"
         android:title="About" />
 
-</menu>
+</menu>

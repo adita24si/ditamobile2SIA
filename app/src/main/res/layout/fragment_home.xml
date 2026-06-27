@@ -19,96 +19,89 @@
             android:orientation="vertical">
 
             <!-- Premium Header Card -->
-            <com.google.android.material.card.MaterialCardView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/primary_maroon"
-                app:cardElevation="0dp"
-                app:cardCornerRadius="0dp"
+                android:background="@drawable/bg_header_rounded"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="32dp"
+                android:paddingBottom="48dp"
                 android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="24dp"
-                    android:paddingTop="32dp"
-                    android:paddingBottom="40dp">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <!-- Logo Desa -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:cardCornerRadius="25dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/primary_maroon_light">
+
+                        <ImageView
+                            android:id="@+id/imgLogoDesa"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/logoadita"
+                            android:scaleType="centerCrop" />
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
 
-                        <!-- Logo Desa -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            app:cardCornerRadius="25dp"
-                            app:cardElevation="0dp"
-                            app:strokeWidth="1dp"
-                            app:strokeColor="@color/primary_maroon_light">
-
-                            <ImageView
-                                android:id="@+id/imgLogoDesa"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/logoadita"
-                                android:scaleType="centerCrop" />
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <TextView
+                            android:id="@+id/tvAppTitle"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:layout_marginStart="16dp">
+                            android:text="Produk Hukum Bina Desa"
+                            android:textColor="@color/primary_maroon_light"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.1" />
 
-                            <TextView
-                                android:id="@+id/tvAppTitle"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Produk Hukum Bina Desa"
-                                android:textColor="@color/primary_maroon_light"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:textAllCaps="true"
-                                android:letterSpacing="0.1" />
-
-                            <TextView
-                                android:id="@+id/tvUsername"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Halo, Pengguna 👋"
-                                android:textColor="@android:color/white"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="2dp" />
-                        </LinearLayout>
-
-                        <!-- Profile Pic -->
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            app:cardCornerRadius="22dp"
-                            app:cardElevation="2dp"
-                            app:strokeWidth="2dp"
-                            app:strokeColor="@android:color/white">
-
-                            <ImageView
-                                android:id="@+id/imgProfileHome"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@android:drawable/ic_menu_myplaces"
-                                android:background="@color/primary_maroon_light"
-                                android:padding="4dp" />
-                        </com.google.android.material.card.MaterialCardView>
-
+                        <TextView
+                            android:id="@+id/tvUsername"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Halo, Pengguna 👋"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="2dp" />
                     </LinearLayout>
 
+                    <!-- Profile Pic -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="2dp"
+                        app:strokeWidth="2dp"
+                        app:strokeColor="@android:color/white">
+
+                        <ImageView
+                            android:id="@+id/imgProfileHome"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@android:drawable/ic_menu_myplaces"
+                            android:background="@color/primary_maroon_light"
+                            android:padding="4dp" />
+                    </com.google.android.material.card.MaterialCardView>
+
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,8 +124,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="3dp"
+                        app:cardElevation="2dp"
                         app:cardBackgroundColor="@color/surface_card"
+                        app:strokeColor="@color/divider"
+                        app:strokeWidth="1dp"
                         android:layout_marginEnd="6dp">
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -141,9 +136,10 @@
                             android:gravity="center"
                             android:padding="14dp">
                             <TextView
+                                android:id="@+id/tvCountTotalHukum"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="125"
+                                android:text="-"
                                 android:textColor="@color/primary_maroon"
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
@@ -164,8 +160,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="3dp"
+                        app:cardElevation="2dp"
                         app:cardBackgroundColor="@color/surface_card"
+                        app:strokeColor="@color/divider"
+                        app:strokeWidth="1dp"
                         android:layout_marginHorizontal="3dp">
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -174,9 +172,10 @@
                             android:gravity="center"
                             android:padding="14dp">
                             <TextView
+                                android:id="@+id/tvCountPerdes"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="48"
+                                android:text="-"
                                 android:textColor="@color/primary_maroon"
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
@@ -197,8 +196,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="3dp"
+                        app:cardElevation="2dp"
                         app:cardBackgroundColor="@color/surface_card"
+                        app:strokeColor="@color/divider"
+                        app:strokeWidth="1dp"
                         android:layout_marginStart="6dp">
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -207,9 +208,10 @@
                             android:gravity="center"
                             android:padding="14dp">
                             <TextView
+                                android:id="@+id/tvCountTotalBerita"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="82"
+                                android:text="-"
                                 android:textColor="@color/primary_maroon"
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
@@ -419,37 +421,30 @@
                 </GridLayout>
 
                 <!-- Informasi Program -->
-                <com.google.android.material.card.MaterialCardView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/primary_maroon_light"
-                    app:strokeColor="@color/primary_maroon"
-                    app:strokeWidth="1dp"
+                    android:background="@drawable/bg_card_purple_gradient"
+                    android:orientation="vertical"
+                    android:padding="20dp"
                     android:layout_marginBottom="28dp">
-                    <LinearLayout
+                    
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="20dp">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Digitalisasi Produk Hukum Desa 📜"
-                            android:textColor="@color/primary_maroon"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
-                            android:layout_marginBottom="8dp"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Program digitalisasi produk hukum bina desa ini ditujukan untuk mempermudah perangkat desa dan seluruh lapisan masyarakat dalam mengakses peraturan desa, keputusan kepala desa, dan dokumentasi hukum secara transparan dan instan."
-                            android:textColor="@color/secondary_grey"
-                            android:textSize="13sp"
-                            android:lineSpacingExtra="4dp"/>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
+                        android:text="Digitalisasi Produk Hukum Desa 📜"
+                        android:textColor="@color/primary_maroon"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="8dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Program digitalisasi produk hukum bina desa ini ditujukan untuk mempermudah perangkat desa dan seluruh lapisan masyarakat dalam mengakses peraturan desa, keputusan kepala desa, dan dokumentasi hukum secara transparan dan instan."
+                        android:textColor="@color/secondary_grey"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="4dp"/>
+                </LinearLayout>
 
                 <!-- Kabar & Berita Desa Section -->
                 <TextView

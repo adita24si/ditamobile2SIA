@@ -1,4 +1,4 @@
-package com.example.razerstoreapps.data.model
+package com.example.razerstoreapps.data.database
 
 import java.io.Serializable
 

@@ -1,6 +1,5 @@
-package com.example.razerstoreapps.data.api
+package com.example.razerstoreapps.data.news
 
-import com.example.razerstoreapps.data.model.NewsResponse
 import retrofit2.http.GET
 
 interface ApiService {

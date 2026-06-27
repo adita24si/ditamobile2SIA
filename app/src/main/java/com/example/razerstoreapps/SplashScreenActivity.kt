@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.razerstoreapps.data.notification.NotificationHelper
 import com.example.razerstoreapps.databinding.ActivitySplashScreenBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -33,6 +34,9 @@ class SplashScreenActivity : AppCompatActivity() {
             )
             insets
         }
+
+        // Daftarkan semua notification channel sejak awal
+        NotificationHelper.createAllChannels(this)
 
         val sharedPref = getSharedPreferences(
             "user_pref",

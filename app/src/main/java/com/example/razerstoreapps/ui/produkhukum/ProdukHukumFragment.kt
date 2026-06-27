@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.razerstoreapps.R
-import com.example.razerstoreapps.data.model.ProdukHukum
+import com.example.razerstoreapps.data.database.ProdukHukum
 import com.example.razerstoreapps.databinding.FragmentProdukHukumBinding
 import com.example.razerstoreapps.ui.adapter.ProdukHukumAdapter
 import com.example.razerstoreapps.ui.detail.DetailProdukHukumActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+
 
 class ProdukHukumFragment : Fragment() {
 
@@ -29,17 +32,47 @@ class ProdukHukumFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dummyDocs = getDummyProdukHukum()
+        binding.rvProdukHukum.layoutManager = androidx.recyclerview.widget.GridLayoutManager(requireContext(), 2)
+        
+        loadDatabaseData()
+    }
 
-        binding.rvProdukHukum.layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.rvProdukHukum.adapter = ProdukHukumAdapter(dummyDocs) { doc ->
-            // Open Detail page
-            val intent = Intent(requireContext(), DetailProdukHukumActivity::class.java).apply {
-                putExtra(DetailProdukHukumActivity.EXTRA_DOC, doc)
+    private fun loadDatabaseData() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val db = com.example.razerstoreapps.data.database.AppDatabase.getDatabase(requireContext())
+                val entities = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                    db.produkHukumDao().all
+                }
+                
+                // Map local entities to domain models for UI adapter
+                val docs = entities.map { entity ->
+                    ProdukHukum(
+                        id = entity.id,
+                        name = entity.name,
+                        number = entity.number,
+                        year = entity.year,
+                        category = entity.category,
+                        shortDescription = entity.shortDescription,
+                        longDescription = entity.longDescription,
+                        isValid = entity.isValid,
+                        iconRes = entity.iconRes
+                    )
+                }
+                
+                binding.rvProdukHukum.adapter = ProdukHukumAdapter(docs) { doc ->
+                    // Open Detail page
+                    val intent = Intent(requireContext(), DetailProdukHukumActivity::class.java).apply {
+                        putExtra(DetailProdukHukumActivity.EXTRA_DOC, doc)
+                    }
+                    startActivity(intent)
+                }
+            } catch (e: Exception) {
+                android.widget.Toast.makeText(requireContext(), "Gagal memuat data dari database", android.widget.Toast.LENGTH_SHORT).show()
             }
-            startActivity(intent)
         }
     }
+
 
     private fun getDummyProdukHukum(): List<ProdukHukum> {
         val icon = R.drawable.ic_law

@@ -14,12 +14,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.razerstoreapps.BaseActivity
 import com.example.razerstoreapps.BinaDesaWebView
 import com.example.razerstoreapps.R
-import com.example.razerstoreapps.data.api.RetrofitClient
-import com.example.razerstoreapps.data.repository.NewsRepository
+import com.example.razerstoreapps.data.news.RetrofitClient
+import com.example.razerstoreapps.data.news.NewsRepository
 import com.example.razerstoreapps.databinding.FragmentHomeBinding
 import com.example.razerstoreapps.ui.adapter.NewsAdapter
+import com.example.razerstoreapps.ui.produkhukum.SosialisasiFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.Dispatchers
 
 class HomeFragment : Fragment() {
 
@@ -62,7 +65,10 @@ class HomeFragment : Fragment() {
         }
 
         binding.menuInfoDesa.setOnClickListener {
-            Toast.makeText(requireContext(), "Informasi Desa Bina Desa", Toast.LENGTH_SHORT).show()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragmentContainer, SosialisasiFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
 
         binding.menuPortalDesa.setOnClickListener {
@@ -79,16 +85,21 @@ class HomeFragment : Fragment() {
         
         binding.btnRetryNews.setOnClickListener {
             fetchNews()
+            loadDatabaseStats()
         }
 
         fetchNews()
+        loadDatabaseStats()
     }
+
 
     private fun fetchNews() {
         showLoadingState()
         lifecycleScope.launch {
             try {
-                val articles = newsRepository.getTechnologyNews()
+                val allArticles = newsRepository.getTechnologyNews()
+                val articles = allArticles.take(5)
+                binding.tvCountTotalBerita.text = allArticles.size.toString()
                 if (articles.isEmpty()) {
                     showEmptyState()
                 } else {
@@ -107,10 +118,34 @@ class HomeFragment : Fragment() {
                     }
                 }
             } catch (e: Exception) {
+                binding.tvCountTotalBerita.text = "0"
                 showErrorState()
             }
         }
     }
+
+    private fun loadDatabaseStats() {
+        lifecycleScope.launch {
+            try {
+                val db = com.example.razerstoreapps.data.database.AppDatabase.getDatabase(requireContext())
+                val (total, perdes) = withContext(Dispatchers.IO) {
+                    val all = db.produkHukumDao().all
+                    val totalCount = all.size
+                    val perdesCount = all.count { 
+                        it.category.contains("Peraturan Desa", ignoreCase = true) || 
+                        it.category.contains("Perdes", ignoreCase = true) 
+                    }
+                    Pair(totalCount, perdesCount)
+                }
+                binding.tvCountTotalHukum.text = total.toString()
+                binding.tvCountPerdes.text = perdes.toString()
+            } catch (e: Exception) {
+                binding.tvCountTotalHukum.text = "0"
+                binding.tvCountPerdes.text = "0"
+            }
+        }
+    }
+
 
     private fun showLoadingState() {
         binding.progressLoadingNews.visibility = View.VISIBLE

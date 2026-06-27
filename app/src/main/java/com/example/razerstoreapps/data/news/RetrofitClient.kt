@@ -1,4 +1,4 @@
-package com.example.razerstoreapps.data.api
+package com.example.razerstoreapps.data.news
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

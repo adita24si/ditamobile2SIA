@@ -1,11 +1,19 @@
 package com.example.razerstoreapps.ui.detail
 
+import android.Manifest
+import android.app.TimePickerDialog
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.razerstoreapps.R
-import com.example.razerstoreapps.data.model.ProdukHukum
+import com.example.razerstoreapps.data.database.ProdukHukum
 import com.example.razerstoreapps.databinding.ActivityDetailProdukHukumBinding
+import com.example.razerstoreapps.data.notification.NotificationHelper
+import java.util.Calendar
 
 class DetailProdukHukumActivity : AppCompatActivity() {
 
@@ -60,5 +68,51 @@ class DetailProdukHukumActivity : AppCompatActivity() {
         binding.btnDownloadPdf.setOnClickListener {
             Toast.makeText(this, "Mengunduh dokumen PDF ${doc.name}...", Toast.LENGTH_SHORT).show()
         }
+
+        // Set up Reminder button listener
+        binding.btnSetReminder.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), 101)
+                    return@setOnClickListener
+                }
+            }
+            showTimePicker(doc)
+        }
+    }
+
+    private fun showTimePicker(doc: ProdukHukum) {
+        val calendar = Calendar.getInstance()
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+
+        val timePickerDialog = TimePickerDialog(this, { _, selectedHour, selectedMinute ->
+            val reminderCalendar = Calendar.getInstance().apply {
+                set(Calendar.HOUR_OF_DAY, selectedHour)
+                set(Calendar.MINUTE, selectedMinute)
+                set(Calendar.SECOND, 0)
+                set(Calendar.MILLISECOND, 0)
+            }
+
+            // If time is in the past, schedule for tomorrow
+            if (reminderCalendar.timeInMillis <= System.currentTimeMillis()) {
+                reminderCalendar.add(Calendar.DAY_OF_YEAR, 1)
+            }
+
+            // Schedule alarm using AlarmManager
+            NotificationHelper.scheduleReminder(
+                this,
+                doc.id,
+                doc.name,
+                reminderCalendar.timeInMillis
+            )
+
+            val formattedTime = String.format("%02d:%02d", selectedHour, selectedMinute)
+            Toast.makeText(this, "Pengingat baca untuk '${doc.name}' diatur pada jam $formattedTime", Toast.LENGTH_LONG).show()
+
+        }, hour, minute, true)
+
+        timePickerDialog.show()
     }
 }
+

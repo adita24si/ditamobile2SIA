@@ -12,6 +12,8 @@ import com.example.razerstoreapps.About.AboutFragment
 import com.example.razerstoreapps.Home.tugasp6.HomeFragment
 import com.example.razerstoreapps.Profile.ProfileFragment
 import com.example.razerstoreapps.ui.produkhukum.ProdukHukumFragment
+import com.example.razerstoreapps.ui.produkhukum.KelolaFragment
+
 
 class BaseActivity : AppCompatActivity() {
 
@@ -58,6 +60,10 @@ class BaseActivity : AppCompatActivity() {
                 }
                 R.id.produk_hukum -> {
                     replaceFragment(ProdukHukumFragment())
+                    true
+                }
+                R.id.kelola -> {
+                    replaceFragment(KelolaFragment())
                     true
                 }
                 R.id.profile -> {

@@ -3,7 +3,7 @@ package com.example.razerstoreapps.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.razerstoreapps.data.model.ProdukHukum
+import com.example.razerstoreapps.data.database.ProdukHukum
 import com.example.razerstoreapps.databinding.ItemProdukHukumBinding
 
 class ProdukHukumAdapter(
